@@ -24,7 +24,7 @@ async def user_login():
     await client.connect()
 
     if not await client.is_user_authorized():
-        try:
+            try:
                 await client.sign_in(PHONE_NUMBER)
             except SessionPasswordNeededError:
                 password = input("Masukkan password 2FA Anda: ")
@@ -96,5 +96,5 @@ def main():
     # Start bot
     updater.start_polling()
     updater.idle()
-
+    
     main()
