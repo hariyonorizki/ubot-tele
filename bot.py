@@ -20,10 +20,11 @@ client = TelegramClient('user_session', API_ID, API_HASH)
 
 # Fungsi untuk login ke akun pengguna
 async def user_login():
+    # Pastikan client terhubung
+    await client.connect()
+
     if not await client.is_user_authorized():
-        await client.start(PHONE_NUMBER)
-        if not await client.is_user_authorized():
-            try:
+        try:
                 await client.sign_in(PHONE_NUMBER)
             except SessionPasswordNeededError:
                 password = input("Masukkan password 2FA Anda: ")
@@ -96,5 +97,4 @@ def main():
     updater.start_polling()
     updater.idle()
 
-if __name__ == '__main__':
     main()
