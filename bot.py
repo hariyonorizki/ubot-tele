@@ -82,7 +82,7 @@ async def clone_message(update: Update, context: CallbackContext):
 # Fungsi utama untuk menjalankan bot
 def main():
     # Membuat Updater dan bot
-    updater = Updater(BOT_TOKEN, use_context=True)
+    updater = Updater(BOT_TOKEN)
 
     # Menambahkan command handler untuk auto forward dan clone
     dp = updater.dispatcher
